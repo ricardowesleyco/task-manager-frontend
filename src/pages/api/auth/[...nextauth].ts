@@ -13,7 +13,7 @@ export default NextAuth({
       async authorize(credentials) {
         try {
           const res = await axios.post(
-            "http://localhost:3001/api/v1/auth/login",
+            `${process.env.NEXT_PUBLIC_DOCKER_API_URL}/api/v1/auth/login`,
             {
               email: credentials?.email,
               password: credentials?.password,
